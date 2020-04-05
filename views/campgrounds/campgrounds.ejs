@@ -1,4 +1,4 @@
-<%- include('./layout/header.ejs') %>
+<%- include('../layout/header.ejs') %>
 <div class="container">
   <header class="jumbotron">
     <div class="container">
@@ -12,8 +12,8 @@
   <div class="row">
     <% results.forEach(function(result) { %>
     <div class="col-md-3 col-sm-6 p-5" style="display: flex; flex-wrap: wrap;">
-      <div class="thumbnail">
-        <img src="<%= result.image %>" width="110%">
+      <div class="img-thumbnail">
+        <img src="<%= result.image %>" width="100%">
         <div class="caption text-center"> 
           <h4><%= result.name %></h4> 
         </div>
@@ -28,4 +28,4 @@
 
 
 
-<%- include('./layout/footer.ejs') %>
+<%- include('../layout/footer.ejs') %>
