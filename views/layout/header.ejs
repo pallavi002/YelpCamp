@@ -16,10 +16,13 @@
       <a class="navbar-brand" href="/">YelpCamp</a>
       <div class="navbar-nav nav-right">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
-          <a class="nav-item nav-link" href="/">Login</a>
-          <a class="nav-item nav-link" href="/">Sign up</a>
-          <a class="nav-item nav-link" href="/">Log out</a>
+          <% if(currentUser) { %>
+            <li>Signed in as <%= currentUser.username %></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="nav-item nav-link" href="/logout">Log out</a>
+          <% } else { %>
+            <a class="nav-item nav-link" href="/login">Login</a>
+            <a class="nav-item nav-link" href="/register">Sign up</a>
+          <% } %>
         </div>
       </div>
     </div>
