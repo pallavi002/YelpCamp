@@ -55,4 +55,46 @@ router.get('/:id', function (req, res) {
   })
 })
 
+//EDIT campground route
+router.get('/:id/edit', function (req, res) {
+  if (req.isAuthenticated()) {
+    Campground.findById(req.params.id, function (err, foundCampground) {
+      if (err) {
+        console.log(err);
+        res.redirect('back');
+      } else {
+        // console.log(foundCampground.author.id)
+        res.render('campgrounds/edit', {
+          campground: foundCampground
+        });
+      }
+    })
+  } else {
+    res.send('you need to log in to continue')
+  }
+
+})
+//UPDATE campground route
+router.put('/:id', function (req, res) {
+  Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (err, updatedCampground) {
+    if (err) {
+      res.redirect('/campgrounds');
+    } else {
+      res.redirect('/campgrounds/' + req.params.id)
+    }
+  })
+})
+
+//DESTROY campground route
+router.delete('/:id', function (req, res) {
+  Campground.findByIdAndRemove(req.params.id, function (err, deleteCampground) {
+    if (err) {
+      res.redirect('/campgrounds');
+    } else {
+      res.redirect('/campgrounds');
+    }
+  })
+})
+
+
 module.exports = router;

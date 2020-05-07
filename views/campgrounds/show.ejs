@@ -18,7 +18,12 @@
             <h4 class="float-right">$9.00/night</h4>
             <h4><a><%= campDescription.name %></a></h4>
             <p><%= campDescription.description %></p>
+            <a class="btn btn-primary" href="/campgrounds/<%= campDescription._id %>/edit">Edit Campground</a><br><br>
+            <form action="/campgrounds/<%= campDescription._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger" type="submit">Delete Campground</button>
+            </form>
           </div>
+
         </div>
       </div>
       <div class="jumbotron mt-4">

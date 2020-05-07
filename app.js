@@ -6,6 +6,7 @@ const LocalStrategy = require('passport-local')
 const initDatabase = require('./config/database');
 require('dotenv').config();
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 const User = require('./models/user');
 const SeedDB = require('./seeds')
@@ -16,6 +17,7 @@ var indexRoutes = require('./routes/index');
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride('_method'));
 
 initDatabase();
 //seed the database
