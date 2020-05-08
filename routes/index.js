@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 //root route
 router.get('/', function (req, res, next) {
-  res.render('campgrounds/index');
+  res.redirect('campgrounds');
 });
 
 //register route
